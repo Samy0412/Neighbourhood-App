@@ -1,20 +1,20 @@
 .nav-bar {
   // position: fixed;
   // width: 100%;
-  // z-index: 1;
+  z-index: 100;
   // top: 0;
 
   color: #ffffff;
   display: flex;
   background-color: $darkBlue;
-  
+
   justify-content: space-between;
   padding: 10px 40px;
   box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.4);
   ul {
     list-style-type: none;
   }
-  height: 75px;
+  height: 80px;
   flex-wrap: wrap;
 }
 
@@ -22,7 +22,7 @@
   padding-left: 30px;
 
   .show {
-    z-index: 2;
+    z-index: 100;
   }
 }
 

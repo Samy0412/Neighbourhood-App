@@ -3,6 +3,7 @@ import { withScriptjs, withGoogleMap } from "react-google-maps";
 
 import Switchlabels from "./Switchlabels";
 import Map from "./Map";
+import "../../styles.scss";
 
 function MapPage(props) {
   //Manages the state of the switches
@@ -28,7 +29,7 @@ function MapPage(props) {
         ServicesSwitch={state.Services}
         AlertsSwitch={state.Alerts}
       />
-      <div style={{ width: "100vw", height: "83vh" }}>
+      <div className="map">
         <WrappedMap
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
           loadingElement={<div style={{ height: `100%` }} />}

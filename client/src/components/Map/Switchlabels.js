@@ -7,6 +7,7 @@ import { yellow } from "@material-ui/core/colors";
 import { green } from "@material-ui/core/colors";
 import { blue } from "@material-ui/core/colors";
 import { red } from "@material-ui/core/colors";
+import "../../styles.scss";
 
 const YellowSwitch = withStyles({
   switchBase: {
@@ -66,48 +67,52 @@ const RedSwitch = withStyles({
 
 export default function SwitchLabels(props) {
   return (
-    <FormGroup row>
-      <FormControlLabel
-        control={
-          <YellowSwitch
-            checked={props.Neighbours}
-            onChange={props.handleChange}
-            name="Neighbours"
-          />
-        }
-        label="Neighbours"
-      />
-      <FormControlLabel
-        control={
-          <GreenSwitch
-            checked={props.Events}
-            onChange={props.handleChange}
-            name="Events"
-          />
-        }
-        label="Events"
-      />
-      <FormControlLabel
-        control={
-          <BlueSwitch
-            checked={props.Services}
-            onChange={props.handleChange}
-            name="Services"
-          />
-        }
-        label="Services"
-      />
-      <FormControlLabel
-        control={
-          <RedSwitch
-            checked={props.Alerts}
-            onChange={props.handleChange}
-            name="Alerts"
-            color="secondary"
-          />
-        }
-        label="Alerts"
-      />
-    </FormGroup>
+    <div className="switches-box">
+      {" "}
+      Choose a filter
+      <FormGroup row>
+        <FormControlLabel
+          control={
+            <YellowSwitch
+              checked={props.Neighbours}
+              onChange={props.handleChange}
+              name="Neighbours"
+            />
+          }
+          label="Neighbours"
+        />
+        <FormControlLabel
+          control={
+            <GreenSwitch
+              checked={props.Events}
+              onChange={props.handleChange}
+              name="Events"
+            />
+          }
+          label="Events"
+        />
+        <FormControlLabel
+          control={
+            <BlueSwitch
+              checked={props.Services}
+              onChange={props.handleChange}
+              name="Services"
+            />
+          }
+          label="Services"
+        />
+        <FormControlLabel
+          control={
+            <RedSwitch
+              checked={props.Alerts}
+              onChange={props.handleChange}
+              name="Alerts"
+              color="secondary"
+            />
+          }
+          label="Alerts"
+        />
+      </FormGroup>
+    </div>
   );
 }
