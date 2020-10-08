@@ -6,7 +6,6 @@ import "../../styles.scss";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Button,
   FormControl,
   InputLabel,
   Select,
@@ -15,7 +14,7 @@ import {
   Fade,
   FormGroup,
 } from "@material-ui/core";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 import AlertPost from "./AlertPost";
 
@@ -230,7 +229,7 @@ function Alerts(props) {
                 <div id="services-alerts-title-buttons">
                   <FormControl
                     id="services-alerts-filter-dropdown"
-                    variant="filled"
+                    variant="outlined"
                     className={classes.formControl}
                   >
                     <InputLabel
@@ -264,11 +263,8 @@ function Alerts(props) {
                     {props.user ? (
                       <div>
                         <Button
-                          size="large"
-                          id="services-alerts-new-button"
-                          color="primary"
-                          type="button"
-                          variant="contained"
+                          variant="warning"
+                          className="service-alert-button"
                           onClick={handleOpen}
                         >
                           Post New Alert
@@ -368,8 +364,8 @@ function Alerts(props) {
                                   </div>
                                 </div>
                                 <Button
-                                  variant="contained"
-                                  color="primary"
+                                  vvariant="warning"
+                                  className="service-alert-button post"
                                   type="submit"
                                 >
                                   Post

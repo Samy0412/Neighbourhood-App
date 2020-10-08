@@ -7,7 +7,6 @@ import "../../styles.scss";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Button,
   FormControl,
   InputLabel,
   Select,
@@ -17,7 +16,7 @@ import {
   FormGroup,
 } from "@material-ui/core";
 // React Bootstrap
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 //@material-ui-pickers for date and time
 import {
   DatePicker,
@@ -216,7 +215,11 @@ function Events(props) {
   return (
     <div className="main">
       <div className="menu">
-        <FormControl id="event-filter-by-category" variant="filled" className={classes.formControl}>
+        <FormControl
+          id="services-alerts-filter-dropdown-events"
+          variant="outlined"
+          className={classes.formControl}
+        >
           <InputLabel htmlFor="outlined-age-native-simple" id="z-index-zero">
             Filter By Category
           </InputLabel>
@@ -325,7 +328,11 @@ function Events(props) {
                   </Form.Group>
                 </div>
               </div>
-              <Button variant="contained" color="primary" type="submit">
+              <Button
+                variant="warning"
+                type="submit"
+                className="service-alert-button post"
+              >
                 Post
               </Button>
             </Form>

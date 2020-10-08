@@ -12,6 +12,12 @@
   }
 }
 
+#z-index-zero {
+  z-index: 1;
+  color: #2c3e50 !important;
+  font-weight: 500 !important;
+}
+
 #services-alerts-title {
   margin-top: 4.5rem;
   display: flex;
@@ -24,6 +30,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: white !important;
+  margin-left: 20px;
+  margin-right: 25px;
 }
 
 #services-alerts-header {
@@ -50,10 +58,40 @@
 }
 
 #services-alerts-filter-dropdown {
-  height: 3.6rem;
+  height: 3.6em;
   width: 14rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .service-offer-request {
   padding-top: 8px;
+}
+
+.service-alert-button {
+  background-color: #fae5a4 !important;
+  border: #fae5a4 solid 1px !important;
+  color: #2c3e50 !important;
+  font-weight: 500 !important;
+  height: 52px;
+
+  &:hover {
+    background-color: #f3c677 !important;
+  }
+  &:focus:active {
+    box-shadow: none !important;
+  }
+}
+
+.post {
+  width: 100%;
+}
+
+.MuiFilledInput-root {
+  background-color: #fae5a4 !important;
+}
+
+#outlined-age-native-simple {
+  color: #2c3e50 !important;
+  font-size: 0.9em !important;
 }
