@@ -45,7 +45,7 @@ function EditUserInformation(props) {
 
   return (
     <div>
-      <Parallax className="edit-user-information-container" image={require("../../assets/img/apartment2.jpg")} >
+      <Parallax className="edit-user-information-container">
         <div className={classes.containerLogin}>
           <Form onSubmit={onSubmitHandler} className="card box">
             <Form.Group controlId="formBasicFirstname">

@@ -126,7 +126,7 @@ export default function Calendar(props) {
           themeSystem="standard"
           customButtons={{
             myCustomButton: {
-              text: "Add Event",
+              text: "Post New Event",
               click: function () {
                 {
                   props.handleOpen();

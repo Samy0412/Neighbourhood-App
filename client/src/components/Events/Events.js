@@ -3,10 +3,12 @@ import moment from "moment";
 import axios from "axios";
 import Calendar from "./Calendar";
 import "../../styles.scss";
+import { Link } from "react-router-dom";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import {
+  Button,
   FormControl,
   InputLabel,
   Select,
@@ -16,7 +18,7 @@ import {
   FormGroup,
 } from "@material-ui/core";
 // React Bootstrap
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 //@material-ui-pickers for date and time
 import {
   DatePicker,
@@ -257,7 +259,19 @@ function Events(props) {
         >
           <Fade in={open}>
             <Form onSubmit={onSubmitHandler} className="form-contenant">
-              <h2 id="transition-modal-title">Post New Event</h2>
+              <div className="post-event-header">
+                <h2 id="transition-modal-title">Post New Event</h2>
+                <Button
+                  onClick={handleClose}
+                  variant="none"
+                  color="primary"
+                  type="button"
+                  id="close-button"
+                >
+                  <i class="fa fa-times " aria-hidden="true"></i>
+                </Button>
+              </div>
+
               <div className="event-form">
                 <div className="first-section">
                   <Form.Group controlId="eventTitle">
