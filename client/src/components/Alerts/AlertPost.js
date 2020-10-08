@@ -101,34 +101,35 @@ function AlertPost(props) {
                   </Modal>
                 </div>
               ) : (
-                  <Link
-                    id="SA-post-message"
-                    className="message-icon"
-                    to={{ pathname: "/newmessage" }}
-                  >
-                    <i
-                      className="fa fa-comment-o fa-2x"
-                      aria-hidden="true"
-                      onClick={() => setReceiver(receiverObject)}
-                    ></i>
-                  </Link>
-                )}
+                <Link
+                  id="SA-post-message"
+                  className="message-icon"
+                  to={{ pathname: "/newmessage" }}
+                >
+                  <i
+                    className="fa fa-comment-o fa-2x"
+                    aria-hidden="true"
+                    onClick={() => setReceiver(receiverObject)}
+                  ></i>
+                </Link>
+              )}
             </div>
           </div>
         </div>
-      </div>
-      <div className="card-body">
-        <ul className="list-group list-group-flush">
-          <li id="SA-post-title" className="list-group-item">
-            <h3 className="card-title">{props.post_title}</h3>
-          </li>
-          <li className="list-group-item">
-            <img className="post-photo" src={props.post_photo} alt=""></img>
-          </li>
-          <li className="list-group-item">
-            <p className="card-text">{props.post_description}</p>
-          </li>
-        </ul>
+
+        <div className="card-body">
+          <ul className="list-group list-group-flush">
+            <li id="SA-post-title" className="list-group-item">
+              <h3 className="card-title">{props.post_title}</h3>
+            </li>
+            <li className="list-group-item">
+              <img className="post-photo" src={props.post_photo} alt=""></img>
+            </li>
+            <li className="list-group-item">
+              <p className="card-text">{props.post_description}</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

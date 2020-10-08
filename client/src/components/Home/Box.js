@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import "../../styles.scss";
 
 function Box(props) {
@@ -42,15 +43,15 @@ function Box(props) {
           </div>
         </div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">
+          <li className="list-group-item border">
             <div className="h6 text-muted">Your neighbourhood</div>
             <div className="h5">{neighbourhood.name}</div>
           </li>
-          <li className="list-group-item">
+          <li className="list-group-item border">
             <div className="h6 text-muted">Neighbours</div>
             <div className="h5">{nbOfNeighbours}</div>
           </li>
-          <li className="list-group-item">
+          <li className="list-group-item border">
             <Link to="/map">
               <img
                 width="100%"
@@ -58,6 +59,11 @@ function Box(props) {
                 alt=""
               ></img>
             </Link>
+            <li className="list-group-item ">
+              <Button variant="warning" href="/map" className="box-button">
+                View map
+              </Button>{" "}
+            </li>
           </li>
         </ul>
       </div>

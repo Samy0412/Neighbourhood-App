@@ -5,7 +5,7 @@ import "../../styles.scss";
 function BoxRight(props) {
   return (
     <div className="col-md-3">
-      <div className="box box-right">
+      <div className="card box-right">
         <div className="carousel-container">
           <AlertsCarousel
             user={props.user}

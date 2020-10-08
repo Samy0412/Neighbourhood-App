@@ -219,225 +219,228 @@ function Alerts(props) {
     <div>
       <div className="container-fluid gedf-wrapper">
         <div className="row" className="postingRow">
+          <div className="col-md-3 "></div>
           <div className="col-md-6 gedf-main">
-            {/* <Parallax image={require("../../assets/img/blizzard.jpg")}> */}
-            <div id="services-alerts-spreader" className={classes.container}>
-              {/* <Card id="services-alerts_card" className={classes.root}> */}
-
-              {/* <CardActionArea> */}
-              <div className="all-postings">
-                <div id="services-alerts-title" className="box">
-                  <div id="services-alerts-header" className="card-header">
-                    <h1>Alerts</h1>
-                  </div>
-                  <div id="services-alerts-title-buttons">
-
-
-                    <FormControl id="services-alerts-filter-dropdown" variant="filled" className={classes.formControl}>
-                      <InputLabel
-                        htmlFor="outlined-age-native-simple"
-                        id="z-index-zero"
-                      >
-                        Filter By Category
-                  </InputLabel>
-                      <Select
-                        native
-                        value={state.search}
-                        onChange={handleChange}
-                        label="search"
-                        inputProps={{
-                          name: "search",
-                          id: "outlined-age-native-simple",
-                        }}
-                      >
-                        <option aria-label="None" value=""> </option>
-                        {categories.map((category) => (
-                          <option key={category.id} value={category.name}>
-                            {category.name}
-                          </option>
-                        ))}
-                      </Select>
-                    </FormControl>
-
-
-                    <div>
-                      {props.user ? (
-                        <div>
-                          <Button
-                            size="large"
-                            id="services-alerts-new-button"
-                            color="primary"
-                            type="button"
-                            variant="contained"
-                            onClick={handleOpen}
-                          >
-                            Post New Alert
-                      </Button>
-                          <Modal
-                            aria-labelledby="transition-modal-title"
-                            aria-describedby="transition-modal-description"
-                            className={classes.modal}
-                            open={open}
-                            onClose={handleClose}
-                            closeAfterTransition
-                            BackdropComponent={Backdrop}
-                            BackdropProps={{
-                              timeout: 500,
-                            }}
-                          >
-                            <Fade in={open}>
-                              <div>
-                                <Form
-                                  onSubmit={onSubmitHandler}
-                                  className="form-contenant"
-                                >
-                                  <div className="event-form">
-                                    <div className="first-section">
-                                      <h2 id="transition-modal-title">
-                                        Post New Alert
-                                  </h2>
-                                      <Form.Group controlId="alertTitle">
-                                        <Form.Label>Alert Title</Form.Label>
-                                        <Form.Control
-                                          type="title"
-                                          placeholder="Title"
-                                        />
-                                      </Form.Group>
-
-                                      <FormGroup controlId="serviceCategory">
-                                        <Form.Label>Select Category</Form.Label>
-                                        <Form.Control
-                                          as="select"
-                                          value={state.selectedCategory}
-                                          onChange={categoryChange}
-                                        >
-                                          <option></option>
-                                          {categories.map((category) => (
-                                            <option
-                                              key={category.id}
-                                              value={category.id}
-                                            >
-                                              {category.name}
-                                            </option>
-                                          ))}
-                                        </Form.Control>
-                                      </FormGroup>
-
-                                      <Form.Group controlId="alertDescription">
-                                        <Form.Label>Description</Form.Label>
-                                        <Form.Control
-                                          type="description"
-                                          placeholder="Description"
-                                          as="textarea"
-                                          rows="3"
-                                        />
-                                      </Form.Group>
-
-                                      <Form.Group controlId="alertPhoto">
-                                        <Form.Label>Photo (URL or blank)</Form.Label>
-                                        <Form.Control
-                                          type="url"
-                                        />
-                                      </Form.Group>
-                                    </div>
-                                    <div className="second-section">
-                                      <Form.Group
-                                        controlId="streetNumber"
-                                        className="address"
-                                      >
-                                        <Form.Label>Address</Form.Label>
-                                        <Form.Control
-                                          type="streetNumber"
-                                          placeholder="Street number"
-                                        />
-                                      </Form.Group>
-
-                                      <Form.Group controlId="streetName">
-                                        <Form.Control
-                                          type="streetName"
-                                          placeholder="Street name"
-                                        />
-                                      </Form.Group>
-
-                                      <Form.Group controlId="city">
-                                        <Form.Control
-                                          type="city"
-                                          placeholder="City"
-                                        />
-                                      </Form.Group>
-                                    </div>
-                                  </div>
-                                  <Button
-                                    variant="contained"
-                                    color="primary"
-                                    type="submit"
-                                  >
-                                    Post
-                              </Button>
-                                </Form>
-                              </div>
-                            </Fade>
-                          </Modal>
-                        </div>
-                      ) : (
-                          <div></div>
-                        )}
-                    </div>
-
-                    {/* </CardActionArea> */}
-                  </div>
-                  {/* </Card> */}
+            {/* <CardActionArea> */}
+            <div className="all-postings">
+              <div id="services-alerts-title" className="card gedf-card box">
+                <div id="services-alerts-header" className="card-header">
+                  <h1>Alerts</h1>
                 </div>
+                <div id="services-alerts-title-buttons">
+                  <FormControl
+                    id="services-alerts-filter-dropdown"
+                    variant="filled"
+                    className={classes.formControl}
+                  >
+                    <InputLabel
+                      htmlFor="outlined-age-native-simple"
+                      id="z-index-zero"
+                    >
+                      Filter By Category
+                    </InputLabel>
+                    <Select
+                      native
+                      value={state.search}
+                      onChange={handleChange}
+                      label="search"
+                      inputProps={{
+                        name: "search",
+                        id: "outlined-age-native-simple",
+                      }}
+                    >
+                      <option aria-label="None" value="">
+                        {" "}
+                      </option>
+                      {categories.map((category) => (
+                        <option key={category.id} value={category.name}>
+                          {category.name}
+                        </option>
+                      ))}
+                    </Select>
+                  </FormControl>
 
-                {filterByCategory(alerts, state.search, categories)[0] ?
+                  <div>
+                    {props.user ? (
+                      <div>
+                        <Button
+                          size="large"
+                          id="services-alerts-new-button"
+                          color="primary"
+                          type="button"
+                          variant="contained"
+                          onClick={handleOpen}
+                        >
+                          Post New Alert
+                        </Button>
+                        <Modal
+                          aria-labelledby="transition-modal-title"
+                          aria-describedby="transition-modal-description"
+                          className={classes.modal}
+                          open={open}
+                          onClose={handleClose}
+                          closeAfterTransition
+                          BackdropComponent={Backdrop}
+                          BackdropProps={{
+                            timeout: 500,
+                          }}
+                        >
+                          <Fade in={open}>
+                            <div>
+                              <Form
+                                onSubmit={onSubmitHandler}
+                                className="form-contenant"
+                              >
+                                <div className="event-form">
+                                  <div className="first-section">
+                                    <h2 id="transition-modal-title">
+                                      Post New Alert
+                                    </h2>
+                                    <Form.Group controlId="alertTitle">
+                                      <Form.Label>Alert Title</Form.Label>
+                                      <Form.Control
+                                        type="title"
+                                        placeholder="Title"
+                                      />
+                                    </Form.Group>
 
-                  filterByCategory(alerts, state.search, categories).map(
-                    (alert) => (
-                      <AlertPost
-                        key={alert.id}
-                        id={alert.id}
-                        user_photo={alert.profile_photo}
-                        user_first_name={alert.first_name}
-                        user_last_name={alert.last_name}
-                        time_created={alert.time_created}
-                        post_photo={alert.alert_photo}
-                        post_description={alert.description}
-                        post_title={alert.title}
-                        user_id={alert.user_id}
-                        current_user_id={props.user.id}
-                        handleOpenDelete={handleOpenDelete}
-                        handleCloseDelete={handleCloseDelete}
-                        openDelete={openDelete}
-                        deleteSubmitHandler={deleteSubmitHandler}
-                        modalClass={classes.modal}
-                        paperClass={classes.paper}
-                        receiver={props.receiver}
-                        setReceiver={props.receiverData}
-                      />
-                    )
-                  )
-                  :
-                  <div className="box">
-                    <div className="card">
-                      <div className="card-header">
-                        <div className="d-flex justify-content-between align-items-center">
-                          <div id="SA-no-posts">
-                          </div>
-                        </div>
+                                    <FormGroup controlId="serviceCategory">
+                                      <Form.Label>Select Category</Form.Label>
+                                      <Form.Control
+                                        as="select"
+                                        value={state.selectedCategory}
+                                        onChange={categoryChange}
+                                      >
+                                        <option></option>
+                                        {categories.map((category) => (
+                                          <option
+                                            key={category.id}
+                                            value={category.id}
+                                          >
+                                            {category.name}
+                                          </option>
+                                        ))}
+                                      </Form.Control>
+                                    </FormGroup>
+
+                                    <Form.Group controlId="alertDescription">
+                                      <Form.Label>Description</Form.Label>
+                                      <Form.Control
+                                        type="description"
+                                        placeholder="Description"
+                                        as="textarea"
+                                        rows="3"
+                                      />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="alertPhoto">
+                                      <Form.Label>
+                                        Photo (URL or blank)
+                                      </Form.Label>
+                                      <Form.Control type="url" />
+                                    </Form.Group>
+                                  </div>
+                                  <div className="second-section">
+                                    <Form.Group
+                                      controlId="streetNumber"
+                                      className="address"
+                                    >
+                                      <Form.Label>Address</Form.Label>
+                                      <Form.Control
+                                        type="streetNumber"
+                                        placeholder="Street number"
+                                      />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="streetName">
+                                      <Form.Control
+                                        type="streetName"
+                                        placeholder="Street name"
+                                      />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="city">
+                                      <Form.Control
+                                        type="city"
+                                        placeholder="City"
+                                      />
+                                    </Form.Group>
+                                  </div>
+                                </div>
+                                <Button
+                                  variant="contained"
+                                  color="primary"
+                                  type="submit"
+                                >
+                                  Post
+                                </Button>
+                              </Form>
+                            </div>
+                          </Fade>
+                        </Modal>
                       </div>
-                      <div className="card-body">
-                        <ul className="list-group list-group-flush">
-                          <li id="SA-post-title" className="list-group-item">
-                            <h3 className="card-title">No {state.search} Postings at this time</h3>
-                          </li>
-                        </ul>
+                    ) : (
+                      <div></div>
+                    )}
+                  </div>
+
+                  {/* </CardActionArea> */}
+                </div>
+                {/* </Card> */}
+              </div>
+
+              {filterByCategory(alerts, state.search, categories)[0] ? (
+                filterByCategory(
+                  alerts,
+                  state.search,
+                  categories
+                ).map((alert) => (
+                  <AlertPost
+                    key={alert.id}
+                    id={alert.id}
+                    user_photo={alert.profile_photo}
+                    user_first_name={alert.first_name}
+                    user_last_name={alert.last_name}
+                    time_created={alert.time_created}
+                    post_photo={alert.alert_photo}
+                    post_description={alert.description}
+                    post_title={alert.title}
+                    user_id={alert.user_id}
+                    current_user_id={props.user.id}
+                    handleOpenDelete={handleOpenDelete}
+                    handleCloseDelete={handleCloseDelete}
+                    openDelete={openDelete}
+                    deleteSubmitHandler={deleteSubmitHandler}
+                    modalClass={classes.modal}
+                    paperClass={classes.paper}
+                    receiver={props.receiver}
+                    setReceiver={props.receiverData}
+                  />
+                ))
+              ) : (
+                <div className="box">
+                  <div className="card">
+                    <div className="card-header">
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div id="SA-no-posts"></div>
                       </div>
                     </div>
-                  </div>}
-              </div>
-              {/* </Parallax> */}
+                    <div className="card-body">
+                      <ul className="list-group list-group-flush">
+                        <li id="SA-post-title" className="list-group-item">
+                          <h3 className="card-title">
+                            No {state.search} Postings at this time
+                          </h3>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
+            {/* </Parallax> */}
           </div>
+          <div className="col-md-3 "></div>
         </div>
       </div>
     </div>

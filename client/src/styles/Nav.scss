@@ -1,8 +1,8 @@
 .nav-bar {
-  // position: fixed;
-  // width: 100%;
+  position: fixed;
+  width: 100%;
   z-index: 100;
-  // top: 0;
+  top: 0;
 
   color: #ffffff;
   display: flex;
@@ -35,6 +35,35 @@
     border-radius: 8px;
     border: 3px solid $gold;
     height: 60px;
+  }
+}
+
+.btn-secondary {
+  background-color: #fae5a4 !important;
+  // border: 2px solid #f3c677 !important;
+  color: #2c3e50 !important;
+  &:hover {
+    background-color: #f3c677 !important;
+  }
+  &:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+}
+.dropdown-menu.show {
+  a:hover {
+    text-decoration: none !important;
+  }
+}
+.dropdown-item {
+  &:hover {
+    background-color: #dfeffd !important;
+    text-decoration: none !important;
+  }
+  &:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+    color: #2c3e50 !important;
   }
 }
 

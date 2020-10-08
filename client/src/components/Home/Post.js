@@ -81,10 +81,8 @@ function Post(props) {
         </div>
         <div className="card-body">
           <div className="text-muted h7 mb-2 event-date">
-            {" "}
             <i className="fa fa-clock-o fa-2x"></i>
-            {}
-            {" " + moment(props.event_date).calendar()}
+            <div>{" " + moment(props.event_date).calendar()}</div>
           </div>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">

@@ -1,13 +1,22 @@
 .box {
-  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
-// .box:hover {
-//   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-// }
+.card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+  border: solid 0.1em rgba(0, 0, 0, 0.1) !important;
+}
 
+.event-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  i {
+    padding-right: 10px;
+  }
+}
 .card-title {
   font-size: 1.5rem !important;
 }
