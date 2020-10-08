@@ -21,6 +21,33 @@
   }
 }
 
-#account-header-contact-info {
-  padding-bottom: 20px;
+.account-button {
+  background-color: #fae5a4 !important;
+  border: #fae5a4 solid 1px !important;
+  color: #2c3e50 !important;
+  font-weight: 500 !important;
+  height: 35px;
+  margin-left: 15px;
+
+  &:hover {
+    background-color: #f3c677 !important;
+  }
+  &:focus:active {
+    box-shadow: none !important;
+  }
+}
+
+#account-SMS-note {
+  margin-top: 0px;
+}
+
+.fa-save {
+  padding-right: 10px;
+}
+
+.save {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

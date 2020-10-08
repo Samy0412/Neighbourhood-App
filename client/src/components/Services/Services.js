@@ -443,7 +443,7 @@ function Services(props) {
                                 className="service-alert-button post"
                                 type="submit"
                               >
-                                Post
+                                POST
                               </Button>
                             </Form>
                           </div>

@@ -5,8 +5,8 @@ import { Redirect, Link } from "react-router-dom";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Grid, Modal, Backdrop, Fade } from "@material-ui/core";
-import { Form } from "react-bootstrap";
+import { Grid, Modal, Backdrop, Fade } from "@material-ui/core";
+import { Form, Button } from "react-bootstrap";
 
 // import styles from "./Material-kit-components/landingPage.js";
 import "../../styles.scss";
@@ -305,23 +305,16 @@ function Account(props) {
 
                   <div id="account-button-group">
                     <Button
-                      id="account-edit"
-                      size="small"
-                      className="account-buttons"
+                      variant="warning"
+                      className="account-button"
                       onClick={() => setEditRedirect(true)}
-                      variant="contained"
-                      color="primary"
-                      type="button"
                     >
                       Edit Account
                     </Button>
-                    <br></br>
+
                     <Button
-                      size="small"
-                      className="account-buttons"
-                      type="button"
-                      variant="contained"
-                      color="primary"
+                      variant="warning"
+                      className="account-button"
                       onClick={handleOpen}
                     >
                       Subscriptions
@@ -377,19 +370,32 @@ function Account(props) {
                 }}
               >
                 <Fade in={open}>
-                  <div
-                    id="account-subscriptions-subscriptions"
-                    className={classes.paper}
-                  >
+                  <div id="account-subscriptions-subscriptions">
                     <Grid container spacing={3}>
                       <Form
                         id="account-subscriptions-form"
                         onSubmit={onSubmitHandler}
                       >
                         <Grid item xs={12}>
-                          <h2 id="account-subscription-title">
-                            Manage Subscriptions
-                          </h2>
+                          <div className="post-event-header">
+                            <h2 id="transition-modal-title">
+                              Manage Subscriptions
+                            </h2>
+                            <Button
+                              onClick={handleCloseCancel}
+                              variant="none"
+                              type="button"
+                              id="close-button"
+                              disableRipple
+                            >
+                              <i
+                                class="fa fa-times "
+                                id="service-close"
+                                aria-hidden="true"
+                              ></i>
+                            </Button>
+                          </div>
+
                           <p id="account-SMS-note">
                             <small>
                               <i>
@@ -417,6 +423,7 @@ function Account(props) {
                                 checked={checked[category.id]}
                                 type="checkbox"
                                 id={category.id}
+                                className="check"
                               />
                             ))}
                           </div>
@@ -481,21 +488,14 @@ function Account(props) {
                       </FormGroup> */}
                         <div id="account-subscriptions-buttons">
                           <Button
-                            variant="contained"
-                            color="primary"
+                            variant="warning"
                             type="submit"
+                            className="service-alert-button post"
                           >
-                            Post
-                          </Button>
-
-                          <Button
-                            id="account-subscription-cancel-button"
-                            variant="contained"
-                            color="primary"
-                            type="button"
-                            onClick={handleCloseCancel}
-                          >
-                            Cancel
+                            <div className="save">
+                              <i class="fa fa-save fa-2x"></i>
+                              <div>SAVE</div>
+                            </div>
                           </Button>
                         </div>
                       </Form>

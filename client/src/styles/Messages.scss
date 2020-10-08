@@ -19,9 +19,7 @@
     border: 2px solid $chatBorder;
     width: 50%;
     max-width: 600px;
-    &:hover {
-      box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
+
     h2 {
       font-size: 15px;
     }
@@ -50,14 +48,14 @@
     height: 70x;
     width: 70px;
     margin-bottom: 5px;
-    border-radius: 25px;
+    border-radius: 40px;
   }
 }
 
 .message-content {
   font-weight: 500;
-  padding: 25px;
-  padding: 25px;
+  padding: 10px;
+  padding: 10px;
   border-radius: 20px;
   max-width: 40%;
   margin: 10px 30px;
@@ -72,7 +70,7 @@
     color: black;
   }
   .message-content {
-    background-color: $chatBlue;
+    background-color: #2c3e50;
   }
   .timestamp {
     color: black;
@@ -85,7 +83,7 @@
   align-items: flex-start;
   color: black;
   .message-content {
-    background-color: $chatGrey;
+    background-color: #f3c677;
   }
 }
 
@@ -109,8 +107,13 @@
     border: none;
     border-radius: 20px;
     font-size: 14px;
+    background-color: #fae5a4 !important;
+    border: #fae5a4 solid 1px !important;
+    color: #2c3e50 !important;
+    font-weight: 500 !important;
+
     &:hover {
-      color: $chatBlue;
+      background-color: #f3c677 !important;
     }
   }
 
