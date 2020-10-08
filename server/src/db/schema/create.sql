@@ -60,7 +60,7 @@ CREATE TABLE events (
  description TEXT NOT NULL,
  event_start DATE,
  event_time TIME,
- event_photo VARCHAR(255) DEFAULT 'https://i.imgur.com/j6IJGS2.png'
+ event_photo TEXT DEFAULT 'https://i.imgur.com/j6IJGS2.png'
 );
 
 -- do all alerts have locations/coordinates?

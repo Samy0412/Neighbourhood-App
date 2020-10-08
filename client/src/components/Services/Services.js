@@ -14,6 +14,7 @@ import {
   Fade,
   FormGroup,
 } from "@material-ui/core";
+
 import { Form, Button } from "react-bootstrap";
 import { Radio, RadioGroup } from "react-radio-group";
 
@@ -309,42 +310,76 @@ function Services(props) {
                               onSubmit={onSubmitHandler}
                               className="form-contenant"
                             >
+                              <div className="post-event-header">
+                                <h2 id="transition-modal-title">
+                                  Post New Service
+                                </h2>
+                                <Button
+                                  onClick={handleClose}
+                                  variant="none"
+                                  type="button"
+                                  id="close-button"
+                                  disableRipple
+                                >
+                                  <i
+                                    class="fa fa-times "
+                                    id="service-close"
+                                    aria-hidden="true"
+                                  ></i>
+                                </Button>
+                              </div>
                               <div className="event-form">
                                 <div className="first-section">
-                                  <h2 id="transition-modal-title">
-                                    Post New Service
-                                  </h2>
-                                  <Form.Group controlId="serviceTitle">
-                                    <Form.Label>Service Title</Form.Label>
+                                  <Form.Group
+                                    controlId="serviceTitle"
+                                    className="serviceTitle"
+                                  >
+                                    <Form.Label>
+                                      Service Title <span>*</span>
+                                    </Form.Label>
                                     <Form.Control
                                       type="title"
                                       placeholder="Title"
                                     />
                                   </Form.Group>
                                   <Form.Group controlId="serviceRequestOrOffer">
-                                    <RadioGroup
-                                      name="requestOrOffer"
-                                      selectedValue={state.serviceOffer}
-                                      onChange={radioChange}
-                                    >
-                                      <label>
-                                        <Radio value={false} />
-                                        <span> Request</span>
-                                      </label>
+                                    <FormControl>
+                                      <RadioGroup
+                                        name="requestOrOffer"
+                                        value={state.serviceOffer}
+                                        onChange={radioChange}
+                                      >
+                                        <label>
+                                          <Radio
+                                            value={false}
+                                            className="radio"
+                                          />
+                                          <small> Request</small>
+                                        </label>
 
-                                      <label className="offer">
-                                        <Radio value={true} />
-                                        <span> Offer</span>
-                                      </label>
-                                    </RadioGroup>
+                                        <label className="offer">
+                                          <Radio
+                                            value={true}
+                                            className="radio"
+                                          />
+                                          <small>
+                                            <span> </span>Offer
+                                          </small>{" "}
+                                          <span>*</span>
+                                        </label>
+                                      </RadioGroup>
+                                    </FormControl>
                                   </Form.Group>
 
                                   <FormGroup controlId="serviceCategory">
-                                    <Form.Label>Select Category</Form.Label>
+                                    <Form.Label id="category">
+                                      Select Category <span>*</span>
+                                    </Form.Label>
                                     <Form.Control
                                       as="select"
                                       value={state.selectedCategory}
                                       onChange={categoryChange}
+                                      id="selectedCategory"
                                     >
                                       <option></option>
                                       {categories.map((category) => (
@@ -359,7 +394,9 @@ function Services(props) {
                                   </FormGroup>
 
                                   <Form.Group controlId="serviceDescription">
-                                    <Form.Label>Description</Form.Label>
+                                    <Form.Label id="description">
+                                      Description <span>*</span>
+                                    </Form.Label>
                                     <Form.Control
                                       type="description"
                                       placeholder="Description"
@@ -369,10 +406,7 @@ function Services(props) {
                                   </Form.Group>
                                 </div>
                                 <div className="second-section">
-                                  <Form.Group
-                                    controlId="servicePhoto"
-                                    className="address"
-                                  >
+                                  <Form.Group controlId="servicePhoto">
                                     <Form.Label>
                                       Photo (URL or blank)
                                     </Form.Label>
@@ -380,7 +414,9 @@ function Services(props) {
                                   </Form.Group>
 
                                   <Form.Group controlId="streetNumber">
-                                    <Form.Label>Address</Form.Label>
+                                    <Form.Label>
+                                      Address <span>*</span>
+                                    </Form.Label>
                                     <Form.Control
                                       type="streetNumber"
                                       placeholder="Street number"

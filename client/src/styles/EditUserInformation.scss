@@ -11,13 +11,16 @@
 
 .change-neighbourhood-link {
   h2 {
-   color: #1c658a;
+    color: #1c658a;
     font-size: 16px;
     padding: 10px 0 20px 0;
 
     &:hover {
       color: $darkBlue;
     }
-
   }
+}
+
+#account-header-contact-info {
+  padding-bottom: 20px;
 }

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import moment from 'moment';
+import moment from "moment";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 
-
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Grid, Modal, Backdrop, Fade, } from "@material-ui/core";
+import { Button, Grid, Modal, Backdrop, Fade } from "@material-ui/core";
 import { Form } from "react-bootstrap";
-
 
 // import styles from "./Material-kit-components/landingPage.js";
 import "../../styles.scss";
@@ -16,8 +14,8 @@ import "../../styles.scss";
 //for Material UI
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    '& > *': {
+    display: "flex",
+    "& > *": {
       margin: theme.spacing(1),
     },
   },
@@ -39,13 +37,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -53,12 +51,11 @@ const useStyles = makeStyles((theme) => ({
 
 moment().format();
 
-
 function Account(props) {
   const classes = useStyles();
 
   const [neighbourhood, setNeighbourhood] = useState([]);
-  const [editRedirect, setEditRedirect] = useState((false));
+  const [editRedirect, setEditRedirect] = useState(false);
   const [open, setOpen] = useState(false);
 
   // const [state, setState] = React.useState({
@@ -94,47 +91,82 @@ function Account(props) {
   }, []);
 
   const [checked, setChecked] = useState({
-    1: false, 2: false, 3: false, 4: false, 5: false,
-    6: false, 7: false, 8: false, 9: false, 10: false,
-    11: false, 12: false, 13: false, 14: false, 15: false,
-    16: false, 17: false, 18: false, 19: false, 20: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+    10: false,
+    11: false,
+    12: false,
+    13: false,
+    14: false,
+    15: false,
+    16: false,
+    17: false,
+    18: false,
+    19: false,
+    20: false,
     21: false,
   });
 
   const populateChecked = function () {
-    const buttonsToCheck = props.subscriptions.filter((sub) => sub.user_id === props.user.id).map((sub) => sub.category_id)
+    const buttonsToCheck = props.subscriptions
+      .filter((sub) => sub.user_id === props.user.id)
+      .map((sub) => sub.category_id);
     const generateCheckedState = function () {
       const obj = {
-        1: false, 2: false, 3: false, 4: false, 5: false,
-        6: false, 7: false, 8: false, 9: false, 10: false,
-        11: false, 12: false, 13: false, 14: false, 15: false,
-        16: false, 17: false, 18: false, 19: false, 20: false,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+        13: false,
+        14: false,
+        15: false,
+        16: false,
+        17: false,
+        18: false,
+        19: false,
+        20: false,
         21: false,
-      }
+      };
       for (const sub of buttonsToCheck) {
-
-        obj[sub] = true
+        obj[sub] = true;
       }
       return obj;
-    }
-    setChecked(generateCheckedState())
-  }
+    };
+    setChecked(generateCheckedState());
+  };
 
   const handleClick = (e) => {
-    const boxName = e.target.name
+    const boxName = e.target.name;
     setChecked({
       ...checked,
-      [boxName]: !checked[boxName]
+      [boxName]: !checked[boxName],
     });
-  }
+  };
 
   // function getRandomInt(min, max) {
   //   return Math.floor(Math.random() * (max - min + 1)) + min;
   // }
 
   const fetchAccountInfo = async () => {
-    const accountInfo = await axios.get('http://localhost:8001/account');
-    const neighbourhoodInfo = accountInfo.data.filter(neighbourhood => neighbourhood.id === props.user.neighbourhood_id)[0]
+    const accountInfo = await axios.get("http://localhost:8001/account");
+    const neighbourhoodInfo = accountInfo.data.filter(
+      (neighbourhood) => neighbourhood.id === props.user.neighbourhood_id
+    )[0];
     setNeighbourhood(neighbourhoodInfo);
   };
 
@@ -153,31 +185,32 @@ function Account(props) {
   //   });
   // }
 
-
   // these functions handle the Modal REFACTORASFASD ASDASDFASDLFUASFIUHASdfJASPODFJA:OIDFJ"APWOKDAWASDFASDASDDSA
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
-    console.log("CLOSE")
+    console.log("CLOSE");
     setOpen(false);
   };
   const handleCloseCancel = () => {
-    console.log("CLOSE")
+    console.log("CLOSE");
     populateChecked();
     setOpen(false);
   };
 
   const filterCategories = (filter) => {
-    const filtered = props.categories.filter(category => category.category_type === filter)
-    return (filtered)
+    const filtered = props.categories.filter(
+      (category) => category.category_type === filter
+    );
+    return filtered;
   };
 
   const sortSubscriptions = function (subscriptions) {
-    let createSubs = []
+    let createSubs = [];
     for (const entry in subscriptions) {
       if (subscriptions[entry] === true) {
-        createSubs.push(entry)
+        createSubs.push(entry);
       }
     }
     return createSubs;
@@ -185,30 +218,38 @@ function Account(props) {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log("SUBMIT")
+    console.log("SUBMIT");
     updateSubscriptionPreferences({
       // alert_types: state.selectedAlert_Type,
       subscriptions: sortSubscriptions(checked),
-      user_id: props.user.id
+      user_id: props.user.id,
     });
-  }
+  };
 
   const updateSubscriptionPreferences = async function (subscriptionData) {
-    const newSubscriptions = subscriptionData.subscriptions
+    const newSubscriptions = subscriptionData.subscriptions;
     const generateAxiosCalls = function () {
-      console.log("NEWSIES", newSubscriptions)
-      return Promise.all(newSubscriptions.map((categoryId) => {
-        console.log("IN PROMISE", subscriptionData.user_id, categoryId)
-        return axios.post("/subscriptions", { user_id: subscriptionData.user_id, category_id: categoryId })
-      }
-      ));
+      console.log("NEWSIES", newSubscriptions);
+      return Promise.all(
+        newSubscriptions.map((categoryId) => {
+          console.log("IN PROMISE", subscriptionData.user_id, categoryId);
+          return axios.post("/subscriptions", {
+            user_id: subscriptionData.user_id,
+            category_id: categoryId,
+          });
+        })
+      );
     };
     // SET TIMEOUT MIGHT FIX?! LIKE TWILIO!?
-    await axios.post("/subscriptions/delete", { user_id: subscriptionData.user_id })
+    await axios
+      .post("/subscriptions/delete", { user_id: subscriptionData.user_id })
       .then(generateAxiosCalls())
-      .then(setTimeout(() => props.updateSubscriptions()), 2000)
+      .then(
+        setTimeout(() => props.updateSubscriptions()),
+        2000
+      )
       .then(handleClose())
-      .catch((err) => console.error("query error", err.stack))
+      .catch((err) => console.error("query error", err.stack));
     // .then(axios.post("/users/notifcation-settings", { alert_types: subscriptionData.alert_types, user_id: subscriptionData.user_id }))
     // .then((response) => {
     //   console.log("REPOND", response)
@@ -221,8 +262,7 @@ function Account(props) {
   };
 
   if (editRedirect) {
-    return (
-      <Redirect to="/editUserInformation" />);
+    return <Redirect to="/editUserInformation" />;
   }
 
   return (
@@ -234,11 +274,8 @@ function Account(props) {
           {/* <Box user={props.user} /> */}
           <div id="account-center-column" className="col-md-4">
             <div className="card box">
-
               <div id="account-user-info-header" className="card-header">
-
                 <div className="account-header-spreader">
-
                   <img
                     className="rounded-circle"
                     width="100"
@@ -246,23 +283,47 @@ function Account(props) {
                     alt={`${props.user.first_name} ${props.user.last_name}`}
                   ></img>
                   <div className="account-user-name">
-                    <div className="h5">{props.user.first_name} {props.user.last_name}</div>
+                    <div className="h5">
+                      {props.user.first_name} {props.user.last_name}
+                    </div>
                   </div>
                 </div>
 
                 <div className="account-header-spreader-2">
-
                   <div id="account-header-contact-info">
-                    <div><b>phone number: </b><span className="text-muted">{props.user.phone_number}</span></div>
-                    <div><b>email:</b> <span className="text-muted">{props.user.email}</span></div>
+                    <div>
+                      <b>phone number: </b>
+                      <span className="text-muted">
+                        {props.user.phone_number}
+                      </span>
+                    </div>
+                    <div>
+                      <b>email:</b>{" "}
+                      <span className="text-muted">{props.user.email}</span>
+                    </div>
                   </div>
 
                   <div id="account-button-group">
-                    <Button id="account-edit" size="small" className="account-buttons" onClick={() => setEditRedirect(true)} variant="contained" color="primary" type="button">
+                    <Button
+                      id="account-edit"
+                      size="small"
+                      className="account-buttons"
+                      onClick={() => setEditRedirect(true)}
+                      variant="contained"
+                      color="primary"
+                      type="button"
+                    >
                       Edit Account
-                        </Button>
+                    </Button>
                     <br></br>
-                    <Button size="small" className="account-buttons" type="button" variant="contained" color="primary" onClick={handleOpen}>
+                    <Button
+                      size="small"
+                      className="account-buttons"
+                      type="button"
+                      variant="contained"
+                      color="primary"
+                      onClick={handleOpen}
+                    >
                       Subscriptions
                     </Button>
                   </div>
@@ -271,6 +332,7 @@ function Account(props) {
 
               <div className="card-body">
                 <div id="account-bio" className="h6">
+                  <div className="h6 text-muted">About me</div>
                   {props.user.bio}
                 </div>
               </div>
@@ -302,7 +364,6 @@ function Account(props) {
                 </li>
               </ul>
 
-
               <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -316,24 +377,38 @@ function Account(props) {
                 }}
               >
                 <Fade in={open}>
-                  <div id="account-subscriptions-subscriptions" className={classes.paper}>
-
+                  <div
+                    id="account-subscriptions-subscriptions"
+                    className={classes.paper}
+                  >
                     <Grid container spacing={3}>
-
-                      <Form id="account-subscriptions-form" onSubmit={onSubmitHandler}>
+                      <Form
+                        id="account-subscriptions-form"
+                        onSubmit={onSubmitHandler}
+                      >
                         <Grid item xs={12}>
                           <h2 id="account-subscription-title">
                             Manage Subscriptions
                           </h2>
-                          <p id="account-SMS-note"><small><i>To receive subscription-notifications, please ensure that your account is registered with a SMS-enabled phone number.</i></small></p>
+                          <p id="account-SMS-note">
+                            <small>
+                              <i>
+                                To receive subscription-notifications, please
+                                ensure that your account is registered with a
+                                SMS-enabled phone number.
+                              </i>
+                            </small>
+                          </p>
                         </Grid>
 
-
                         <Grid item xs={12}>
-                          <h5 className="account-subscriptions-category">Alerts</h5>
+                          <h5 className="account-subscriptions-category">
+                            Alerts
+                          </h5>
                           <div className="account-map-wrapper">
                             {filterCategories("Alerts").map((category) => (
-                              <Form.Check inline
+                              <Form.Check
+                                inline
                                 name={category.id}
                                 onClick={handleClick}
                                 key={category.id}
@@ -341,16 +416,19 @@ function Account(props) {
                                 label={category.name}
                                 checked={checked[category.id]}
                                 type="checkbox"
-                                id={category.id} />
+                                id={category.id}
+                              />
                             ))}
                           </div>
                         </Grid>
                         <Grid item xs={12}>
-                          <h5 className="account-subscriptions-category">Events</h5>
+                          <h5 className="account-subscriptions-category">
+                            Events
+                          </h5>
                           <div className="account-map-wrapper">
                             {filterCategories("Events").map((category) => (
-
-                              <Form.Check inline
+                              <Form.Check
+                                inline
                                 name={category.id}
                                 onClick={handleClick}
                                 key={category.id}
@@ -358,18 +436,20 @@ function Account(props) {
                                 label={category.name}
                                 checked={checked[category.id]}
                                 type="checkbox"
-                                id={category.id} />
-
+                                id={category.id}
+                              />
                             ))}
                           </div>
                         </Grid>
 
                         <Grid item xs={12}>
-                          <h5 className="account-subscriptions-category">Services</h5>
+                          <h5 className="account-subscriptions-category">
+                            Services
+                          </h5>
                           <div className="account-map-wrapper">
                             {filterCategories("Services").map((category) => (
-
-                              <Form.Check inline
+                              <Form.Check
+                                inline
                                 name={category.id}
                                 onClick={handleClick}
                                 key={category.id}
@@ -377,11 +457,11 @@ function Account(props) {
                                 label={category.name}
                                 checked={checked[category.id]}
                                 type="checkbox"
-                                id={category.id} />
+                                id={category.id}
+                              />
                             ))}
                           </div>
                         </Grid>
-
 
                         {/* <p>Change Alert Type</p> */}
 
@@ -400,13 +480,13 @@ function Account(props) {
                         </Form.Control>
                       </FormGroup> */}
                         <div id="account-subscriptions-buttons">
-                          < Button
+                          <Button
                             variant="contained"
                             color="primary"
                             type="submit"
                           >
                             Post
-                            </Button>
+                          </Button>
 
                           <Button
                             id="account-subscription-cancel-button"
@@ -416,14 +496,13 @@ function Account(props) {
                             onClick={handleCloseCancel}
                           >
                             Cancel
-                            </Button>
+                          </Button>
                         </div>
                       </Form>
                     </Grid>
                   </div>
                 </Fade>
               </Modal>
-
             </div>
           </div>
         </div>

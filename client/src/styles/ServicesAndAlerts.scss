@@ -83,6 +83,10 @@
   }
 }
 
+small {
+  padding-left: 5px;
+}
+
 .post {
   width: 100%;
 }
@@ -94,4 +98,16 @@
 #outlined-age-native-simple {
   color: #2c3e50 !important;
   font-size: 0.9em !important;
+}
+
+.radio:focus:active {
+  background-color: black !important;
+}
+
+#description {
+  padding-top: 15px;
+}
+
+#category {
+  margin-top: -10px;
 }

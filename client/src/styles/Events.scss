@@ -34,6 +34,7 @@
   .event-form {
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
 
     .first-section {
       padding-right: 30px;
@@ -51,7 +52,14 @@
         padding-top: 50px;
       }
     }
+    span {
+      color: red;
+    }
   }
+}
+
+#required {
+  color: red;
 }
 
 #services-alerts-filter-dropdown-events {
@@ -65,7 +73,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 20px;
+  align-items: flex-start;
+  margin-bottom: 0;
 
   #close-button {
     &:hover {
@@ -73,19 +82,34 @@
     }
     &:focus:active {
       outline: 0 !important;
-      background-color: white !important;
-      box-shadow: none !important;
     }
-    &:focus {
-      background-color: white !important;
-    }
+
     .fa-times {
       font-size: 20px;
       margin-right: -40px;
     }
+    #service-close {
+      margin-right: -10px;
+    }
   }
 }
 
+#streetNumber,
+#streetName,
+#city,
+#eventTitle,
+#serviceTitle,
+#eventDescription,
+#serviceDescription,
+#eventPhoto,
+#servicePhoto,
+#selectedCategory {
+  &:focus {
+    border-color: #f3c677;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+      0 0 8px rgba(213, 178, 114, 0.6);
+  }
+}
 @media screen and (max-width: 1400px) {
   .form-contenant {
     width: 60vw;

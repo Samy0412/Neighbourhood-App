@@ -264,27 +264,37 @@ function Events(props) {
                 <Button
                   onClick={handleClose}
                   variant="none"
-                  color="primary"
                   type="button"
                   id="close-button"
+                  disableRipple
                 >
                   <i class="fa fa-times " aria-hidden="true"></i>
                 </Button>
               </div>
+              {/* <div id="required">
+                <span>
+                  * <small>required fields</small>
+                </span>
+              </div> */}
 
               <div className="event-form">
                 <div className="first-section">
                   <Form.Group controlId="eventTitle">
-                    <Form.Label>Event Title</Form.Label>
+                    <Form.Label>
+                      Event Title <span>*</span>
+                    </Form.Label>
                     <Form.Control type="title" placeholder="Title" />
                   </Form.Group>
                   <FormGroup controlId="serviceCategory">
-                    <Form.Label>Select Category</Form.Label>
+                    <Form.Label>
+                      Select Category <span>*</span>
+                    </Form.Label>
                     <Form.Control
                       as="select"
                       value={state.selectedCategory}
                       onChange={handleChange}
                       name="selectedCategory"
+                      id="selectedCategory"
                     >
                       <option></option>
                       {categories.map((category) => (
@@ -296,7 +306,9 @@ function Events(props) {
                   </FormGroup>
 
                   <Form.Group controlId="eventDescription">
-                    <Form.Label>Description</Form.Label>
+                    <Form.Label id="description">
+                      Description <span>*</span>
+                    </Form.Label>
                     <Form.Control
                       type="description"
                       placeholder="Description"
@@ -312,7 +324,9 @@ function Events(props) {
                 </div>
                 <div className="second-section">
                   <FormGroup controlId="dateAndTime" className="date">
-                    <Form.Label>Date and time</Form.Label>
+                    <Form.Label>
+                      Date and time <span>*</span>
+                    </Form.Label>
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <DatePicker
                         value={state.selectedDate}
@@ -326,7 +340,9 @@ function Events(props) {
                   </FormGroup>
 
                   <Form.Group controlId="streetNumber">
-                    <Form.Label>Address</Form.Label>
+                    <Form.Label>
+                      Address <span>*</span>
+                    </Form.Label>
                     <Form.Control
                       type="streetNumber"
                       placeholder="Street number"

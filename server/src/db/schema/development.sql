@@ -10,7 +10,7 @@ VALUES
 
 -- Developer Accounts
 
-(1, 'graham.mothersill@gmail.com', crypt('password', gen_salt('bf')), '(45.542915, -73.634951)', 'Graham', 'Mothersill', '1234567890', 'https://i.imgur.com/3tVgsra.jpg', 'Graham is one of the people who made this web-app.'),
+(1, 'graham.mothersill@gmail.com', crypt('password', gen_salt('bf')), '(45.542915, -73.634951)', 'Graham', 'Mothersill', '1234567890', '/images/users/graham.jpeg', 'Graham is one of the people who made this web-app.'),
 
 (1, 'jsaputo1@gmail.com', crypt('password', gen_salt('bf')), '(43.657603, -79.411882)', 'John', 'Saputo', '1234567890', '/images/users/john.jpg', 'John is one of the people who made this web-app.'),
 

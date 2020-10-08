@@ -287,13 +287,30 @@ function Alerts(props) {
                                 onSubmit={onSubmitHandler}
                                 className="form-contenant"
                               >
+                                <div className="post-event-header">
+                                  <h2 id="transition-modal-title">
+                                    Post New Alert
+                                  </h2>
+                                  <Button
+                                    onClick={handleClose}
+                                    variant="none"
+                                    type="button"
+                                    id="close-button"
+                                    disableRipple
+                                  >
+                                    <i
+                                      class="fa fa-times "
+                                      id="service-close"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </Button>
+                                </div>
                                 <div className="event-form">
                                   <div className="first-section">
-                                    <h2 id="transition-modal-title">
-                                      Post New Alert
-                                    </h2>
                                     <Form.Group controlId="alertTitle">
-                                      <Form.Label>Alert Title</Form.Label>
+                                      <Form.Label>
+                                        Alert Title <span>*</span>
+                                      </Form.Label>
                                       <Form.Control
                                         type="title"
                                         placeholder="Title"
@@ -301,7 +318,9 @@ function Alerts(props) {
                                     </Form.Group>
 
                                     <FormGroup controlId="serviceCategory">
-                                      <Form.Label>Select Category</Form.Label>
+                                      <Form.Label>
+                                        Select Category <span>*</span>
+                                      </Form.Label>
                                       <Form.Control
                                         as="select"
                                         value={state.selectedCategory}
@@ -320,7 +339,9 @@ function Alerts(props) {
                                     </FormGroup>
 
                                     <Form.Group controlId="alertDescription">
-                                      <Form.Label>Description</Form.Label>
+                                      <Form.Label id="description">
+                                        Description <span>*</span>
+                                      </Form.Label>
                                       <Form.Control
                                         type="description"
                                         placeholder="Description"
@@ -328,20 +349,18 @@ function Alerts(props) {
                                         rows="3"
                                       />
                                     </Form.Group>
-
+                                  </div>
+                                  <div className="second-section">
                                     <Form.Group controlId="alertPhoto">
                                       <Form.Label>
                                         Photo (URL or blank)
                                       </Form.Label>
                                       <Form.Control type="url" />
                                     </Form.Group>
-                                  </div>
-                                  <div className="second-section">
-                                    <Form.Group
-                                      controlId="streetNumber"
-                                      className="address"
-                                    >
-                                      <Form.Label>Address</Form.Label>
+                                    <Form.Group controlId="streetNumber">
+                                      <Form.Label>
+                                        Address <span>*</span>
+                                      </Form.Label>
                                       <Form.Control
                                         type="streetNumber"
                                         placeholder="Street number"
