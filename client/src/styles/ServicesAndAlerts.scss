@@ -41,8 +41,11 @@
   font-family: $titleFont;
 
   h1 {
-    font-size: 3.5rem !important;
+    font-size: 2.8rem !important;
   }
+}
+.service-alert-border {
+  border-bottom: solid 0.5px rgba(0, 0, 0, 0.1) !important;
 }
 
 #services-alerts-spreader {

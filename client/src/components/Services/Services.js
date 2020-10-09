@@ -246,13 +246,14 @@ function Services(props) {
           <div className="col-md-6 gedf-main">
             {/* </Card> */}
             <div className="all-postings">
-              <div id="services-alerts-title" className="card gedf-card box">
-                <div id="services-alerts-header" className="card-header">
+              <div className="card gedf-card box">
+                <div
+                  id="services-alerts-header"
+                  className="service-alert-border"
+                >
                   <h1>Services</h1>
                 </div>
                 <div id="services-alerts-title-buttons">
-                  {/* <CardActionArea> */}
-
                   <FormControl
                     id="services-alerts-filter-dropdown"
                     variant="outlined"

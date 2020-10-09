@@ -45,7 +45,6 @@ function App() {
 
   //That is going to be our main app, once we log in or sign in
   const Website = () => (
-
     <div>
       <Nav user={state.user} logout={setUser} />
       <Switch>
@@ -109,6 +108,7 @@ function App() {
             subscriptions={subscriptions}
             categories={categories}
             user={state.user}
+            editUser={setUser}
           ></Account>
         </Route>
       </Switch>

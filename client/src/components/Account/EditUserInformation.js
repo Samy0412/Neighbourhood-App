@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
-import { Form } from "react-bootstrap";
+
+import { Form, Button } from "react-bootstrap";
 import styles from "../Material-kit-components/landingPage.js";
 import Parallax from "../Material-kit-components/Parallax.js";
 import "../../styles.scss";
@@ -47,6 +47,16 @@ function EditUserInformation(props) {
     <div>
       <Parallax className="edit-user-information-container">
         <div className={classes.containerLogin}>
+          {" "}
+          <Button
+            onClick={props.handleClose2}
+            variant="none"
+            type="button"
+            id="close-button"
+            disableRipple
+          >
+            <i class="fa fa-times " id="service-close" aria-hidden="true"></i>
+          </Button>
           <Form onSubmit={onSubmitHandler} className="card box">
             <Form.Group controlId="formBasicFirstname">
               <Form.Label>First Name</Form.Label>

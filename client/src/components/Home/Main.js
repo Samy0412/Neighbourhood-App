@@ -8,6 +8,18 @@ function Main(props) {
   const userNeighbourhoodId = props.user.neighbourhood_id;
 
   const [events, setEvents] = useState([]);
+  const [neighbourhood, setneighbourhood] = useState([]);
+
+  //get the neighbourhood object
+  const findNeighbourhood = (id) => {
+    axios.get("/neighbourhood").then((response) => {
+      const neighbourhoods = response.data;
+      const userNeighbourhood = neighbourhoods.find(
+        (neighbourhood) => neighbourhood.id === id
+      );
+      setneighbourhood(userNeighbourhood);
+    });
+  };
 
   //Gets all the events in the neighbourhood
   const getEventsForNeighbourhood = (id) => {
@@ -22,15 +34,14 @@ function Main(props) {
 
   useEffect(() => {
     getEventsForNeighbourhood(userNeighbourhoodId);
+    findNeighbourhood(userNeighbourhoodId);
   }, []);
   return (
     <div className="col-md-6 gedf-main">
       <div className="upcoming-events">
         <div className="card gedf-card box">
-          <div className="card-header">
-            <div className="d-flex align-items-center">
-              <h2 id="home-header">Upcoming Events in your Neighbourhood</h2>
-            </div>
+          <div id="services-alerts-header">
+            <h1>Upcoming events in {neighbourhood.name}</h1>
           </div>
         </div>
 
@@ -53,7 +64,7 @@ function Main(props) {
                 event_start={event.event_start}
                 event_date={`${event.event_start.slice(0, 10)}T${
                   event.event_time
-                  }.000Z`}
+                }.000Z`}
                 receiver={props.receiver}
                 setReceiver={props.setReceiver}
                 user_id={event.user_id}

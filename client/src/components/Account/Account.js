@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Modal, Backdrop, Fade } from "@material-ui/core";
 import { Form, Button } from "react-bootstrap";
 
+import EditUserInformation from "./EditUserInformation";
 // import styles from "./Material-kit-components/landingPage.js";
 import "../../styles.scss";
 
@@ -57,10 +58,7 @@ function Account(props) {
   const [neighbourhood, setNeighbourhood] = useState([]);
   const [editRedirect, setEditRedirect] = useState(false);
   const [open, setOpen] = useState(false);
-
-  // const [state, setState] = React.useState({
-  //   selectedAlert_Type: props.user.alert_types,
-  // });
+  const [open2, setOpen2] = useState(false);
 
   const [nbOfNeighbours, setnbOfNeighbours] = useState(0);
   //Grab the neighbourhood id from the props
@@ -189,9 +187,16 @@ function Account(props) {
   const handleOpen = () => {
     setOpen(true);
   };
+  const handleOpen2 = () => {
+    setOpen2(true);
+  };
   const handleClose = () => {
     console.log("CLOSE");
     setOpen(false);
+  };
+  const handleClose2 = () => {
+    console.log("CLOSE");
+    setOpen2(false);
   };
   const handleCloseCancel = () => {
     console.log("CLOSE");
@@ -307,7 +312,8 @@ function Account(props) {
                     <Button
                       variant="warning"
                       className="account-button"
-                      onClick={() => setEditRedirect(true)}
+                      // onClick={() => setEditRedirect(true)}
+                      onClick={handleOpen2}
                     >
                       Edit Account
                     </Button>
@@ -317,7 +323,7 @@ function Account(props) {
                       className="account-button"
                       onClick={handleOpen}
                     >
-                      Subscriptions
+                      SMS Notifications
                     </Button>
                   </div>
                 </div>
@@ -362,7 +368,6 @@ function Account(props) {
                 aria-describedby="transition-modal-description"
                 className={classes.modal}
                 open={open}
-                // onClose={handleClose}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
@@ -379,10 +384,10 @@ function Account(props) {
                         <Grid item xs={12}>
                           <div className="post-event-header">
                             <h2 id="transition-modal-title">
-                              Manage Subscriptions
+                              Manage SMS Notifications
                             </h2>
                             <Button
-                              onClick={handleCloseCancel}
+                              onClick={handleClose}
                               variant="none"
                               type="button"
                               id="close-button"
@@ -470,22 +475,6 @@ function Account(props) {
                           </div>
                         </Grid>
 
-                        {/* <p>Change Alert Type</p> */}
-
-                        {/* <FormGroup controlId="serviceCategory">
-                        <Form.Label>Select Alert Type</Form.Label>
-                        <Form.Control
-                          as="select"
-                          value={state.selectedAlert_Type}
-                          onChange={changeAlert_Type}
-                        >
-                          <option>Both</option>
-                          <option>SMS</option>
-                          <option>Email</option>
-                          <option>None</option>
-                          ))
-                        </Form.Control>
-                      </FormGroup> */}
                         <div id="account-subscriptions-buttons">
                           <Button
                             variant="warning"
@@ -500,6 +489,27 @@ function Account(props) {
                         </div>
                       </Form>
                     </Grid>
+                  </div>
+                </Fade>
+              </Modal>
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open2}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open2}>
+                  <div>
+                    <EditUserInformation
+                      user={props.user}
+                      editUser={props.editUser}
+                      handleClose2={handleClose2}
+                    />
                   </div>
                 </Fade>
               </Modal>

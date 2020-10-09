@@ -222,8 +222,11 @@ function Alerts(props) {
           <div className="col-md-6 gedf-main">
             {/* <CardActionArea> */}
             <div className="all-postings">
-              <div id="services-alerts-title" className="card gedf-card box">
-                <div id="services-alerts-header" className="card-header">
+              <div className="card gedf-card box">
+                <div
+                  id="services-alerts-header"
+                  className="service-alert-border"
+                >
                   <h1>Alerts</h1>
                 </div>
                 <div id="services-alerts-title-buttons">
@@ -325,6 +328,7 @@ function Alerts(props) {
                                         as="select"
                                         value={state.selectedCategory}
                                         onChange={categoryChange}
+                                        id="selectedCategory"
                                       >
                                         <option></option>
                                         {categories.map((category) => (
