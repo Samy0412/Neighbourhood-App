@@ -119,3 +119,12 @@
   font-size: 1rem;
   color: #5f5f64;
 }
+
+.button-layout {
+  display: flex;
+  flex-direction: row;
+  margin-left: -5px;
+  .icon {
+    margin-right: 5px;
+  }
+}

@@ -6,10 +6,13 @@ import { Redirect, Link } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Modal, Backdrop, Fade } from "@material-ui/core";
+import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
+import EditIcon from "@material-ui/icons/Edit";
 import { Form, Button } from "react-bootstrap";
 
+//import components
 import EditUserInformation from "./EditUserInformation";
-// import styles from "./Material-kit-components/landingPage.js";
+
 import "../../styles.scss";
 
 //for Material UI
@@ -315,7 +318,10 @@ function Account(props) {
                       // onClick={() => setEditRedirect(true)}
                       onClick={handleOpen2}
                     >
-                      Edit Account
+                      <div className="button-layout">
+                        <EditIcon className="icon" />
+                        <div>Edit Account</div>
+                      </div>
                     </Button>
 
                     <Button
@@ -323,7 +329,10 @@ function Account(props) {
                       className="account-button"
                       onClick={handleOpen}
                     >
-                      SMS Notifications
+                      <div className="button-layout">
+                        <PhoneIphoneIcon className="icon" />
+                        <div>SMS Notifications</div>
+                      </div>
                     </Button>
                   </div>
                 </div>
@@ -384,7 +393,7 @@ function Account(props) {
                         <Grid item xs={12}>
                           <div className="post-event-header">
                             <h2 id="transition-modal-title">
-                              Manage SMS Notifications
+                              SMS Notifications
                             </h2>
                             <Button
                               onClick={handleClose}

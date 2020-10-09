@@ -51,3 +51,15 @@
   justify-content: center;
   align-items: center;
 }
+
+.change-neighbourhood {
+  margin-top: 20px;
+  width: 100% !important;
+  border: 1px solid #f3c677 !important;
+  color: #f3c677 !important;
+  &:hover {
+    background-color: #fae5a4 !important;
+    color: #2c3e50 !important;
+    border: none !important;
+  }
+}

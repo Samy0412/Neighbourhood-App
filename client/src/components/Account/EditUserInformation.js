@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { Form, Button } from "react-bootstrap";
 import styles from "../Material-kit-components/landingPage.js";
-import Parallax from "../Material-kit-components/Parallax.js";
 import "../../styles.scss";
 
 const useStyles = makeStyles(styles);
@@ -45,9 +44,9 @@ function EditUserInformation(props) {
 
   return (
     <div>
-      <Parallax className="edit-user-information-container">
-        <div className={classes.containerLogin}>
-          {" "}
+      <Form onSubmit={onSubmitHandler} className="form-contenant">
+        <div className="post-event-header">
+          <h2 id="transition-modal-title">Edit Account</h2>
           <Button
             onClick={props.handleClose2}
             variant="none"
@@ -57,7 +56,10 @@ function EditUserInformation(props) {
           >
             <i class="fa fa-times " id="service-close" aria-hidden="true"></i>
           </Button>
-          <Form onSubmit={onSubmitHandler} className="card box">
+        </div>
+
+        <div className="event-form">
+          <div className="first-section">
             <Form.Group controlId="formBasicFirstname">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -91,7 +93,8 @@ function EditUserInformation(props) {
                 placeholder="Phone Number"
               />
             </Form.Group>
-
+          </div>
+          <div className="second-section">
             <Form.Group controlId="formBasicProfilePhoto">
               <Form.Label>Profile Photo (URL or blank)</Form.Label>
               <Form.Control
@@ -116,29 +119,26 @@ function EditUserInformation(props) {
             </Form.Group>
 
             <Button
-              variant="outlined"
-              color="primary"
+              variant="outline-warning"
               href="/selectNeighbourhood"
+              className="change-neighbourhood"
             >
               Change Neighbourhood
             </Button>
-
-            <div className="edit-form-buttons">
-              <Button variant="contained" color="primary" type="submit">
-                Submit
-              </Button>
-              <Button
-                onClick={() => setAccountRedirect(true)}
-                variant="contained"
-                color="primary"
-                type="button"
-              >
-                Cancel
-              </Button>
-            </div>
-          </Form>
+          </div>
         </div>
-      </Parallax>
+
+        <Button
+          variant="warning"
+          type="submit"
+          className="service-alert-button post"
+        >
+          <div className="save">
+            <i class="fa fa-save fa-2x"></i>
+            <div>SAVE</div>
+          </div>
+        </Button>
+      </Form>
     </div>
   );
 }
