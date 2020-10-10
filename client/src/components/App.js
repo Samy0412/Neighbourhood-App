@@ -9,7 +9,6 @@ import MapPage from "./Map/MapPage";
 import Messages from "./Messages/Messages";
 import NewMessage from "./Messages/NewMessage";
 import Account from "./Account/Account";
-import EditUserInformation from "./Account/EditUserInformation";
 import Home from "./Home/Home";
 import Landing from "./Landing/Landing";
 import Login from "./Landing/Login";
@@ -130,12 +129,6 @@ function App() {
             user={state.user}
             register={setUser}
           ></SelectNeighbourhood>
-        </Route>
-        <Route path="/editUserInformation" exact>
-          <EditUserInformation
-            user={state.user}
-            editUser={setUser}
-          ></EditUserInformation>
         </Route>
         {/* These are the paths were we will see the navbar */}
         <Route component={Website} />

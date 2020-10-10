@@ -8,6 +8,18 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import SettingsIcon from "@material-ui/icons/Settings";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import HomeIcon from "@material-ui/icons/Home";
+import DateRangeIcon from "@material-ui/icons/DateRange";
+import InfoIcon from "@material-ui/icons/Info";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHandsHelping,
+  faMapMarkedAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { faComments } from "@fortawesome/free-regular-svg-icons";
+
 import axios from "axios";
 
 function Nav(props) {
@@ -47,16 +59,55 @@ function Nav(props) {
             </DropdownToggle>
             <DropdownMenu>
               <NavLink to="/home">
-                <DropdownItem>Home</DropdownItem>
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <HomeIcon className="icon " />
+                    <div> Home</div>{" "}
+                  </div>
+                </DropdownItem>
+              </NavLink>{" "}
+              <NavLink to="/map">
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <FontAwesomeIcon
+                      icon={faMapMarkedAlt}
+                      className="icon-fa "
+                    />
+                    <div> Map</div>
+                  </div>
+                </DropdownItem>
               </NavLink>
               <NavLink to="/events">
-                <DropdownItem>Events</DropdownItem>
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <DateRangeIcon className="icon " />
+                    <div> Events</div>{" "}
+                  </div>
+                </DropdownItem>
               </NavLink>
               <NavLink to="/services">
-                <DropdownItem>Services</DropdownItem>
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <FontAwesomeIcon
+                      icon={faHandsHelping}
+                      className="icon-fa "
+                    />
+                    <div> Services</div>
+                  </div>
+                </DropdownItem>
               </NavLink>
               <NavLink to="/alerts">
-                <DropdownItem>Alerts</DropdownItem>
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <InfoIcon className="icon " />
+                    <div> Alerts</div>{" "}
+                  </div>
+                </DropdownItem>
               </NavLink>
             </DropdownMenu>
           </Dropdown>
@@ -68,25 +119,82 @@ function Nav(props) {
             </DropdownToggle>
             <DropdownMenu>
               <NavLink to="/home">
-                <DropdownItem>Home</DropdownItem>
-              </NavLink>
-              <NavLink to="/events">
-                <DropdownItem>Events</DropdownItem>
-              </NavLink>
-              <NavLink to="/services">
-                <DropdownItem>Services</DropdownItem>
-              </NavLink>
-              <NavLink to="/alerts">
-                <DropdownItem>Alerts</DropdownItem>
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <HomeIcon className="icon " />
+                    <div> Home</div>{" "}
+                  </div>
+                </DropdownItem>
               </NavLink>
               <NavLink to="/map">
-                <DropdownItem>Map</DropdownItem>
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <FontAwesomeIcon
+                      icon={faMapMarkedAlt}
+                      className="icon-fa "
+                    />
+                    <div> Map</div>
+                  </div>
+                </DropdownItem>
+              </NavLink>
+              <NavLink to="/events">
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <DateRangeIcon className="icon " />
+                    <div> Events</div>{" "}
+                  </div>
+                </DropdownItem>
+              </NavLink>
+              <NavLink to="/services">
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <FontAwesomeIcon
+                      icon={faHandsHelping}
+                      className="icon-fa "
+                    />
+                    <div> Services</div>
+                  </div>
+                </DropdownItem>
+              </NavLink>
+              <NavLink to="/alerts">
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <InfoIcon className="icon " />
+                    <div> Alerts</div>{" "}
+                  </div>
+                </DropdownItem>
+              </NavLink>
+
+              <NavLink to="/messages">
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout exit">
+                    <FontAwesomeIcon icon={faComments} className="icon-fa " />
+                    <div> Messages</div>
+                  </div>
+                </DropdownItem>
               </NavLink>
               <NavLink to="/account">
-                <DropdownItem>Account</DropdownItem>
+                <DropdownItem>
+                  {" "}
+                  <div className="button-layout">
+                    <SettingsIcon className="icon" />
+                    <div> Settings</div>
+                  </div>
+                </DropdownItem>
               </NavLink>
               <DropdownItem>
-                <span onClick={logout}>Logout</span>
+                <span onClick={logout}>
+                  <div className="button-layout exit">
+                    <ExitToAppIcon className="icon " />
+                    <div> Sign out</div>
+                  </div>
+                </span>
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
@@ -104,9 +212,6 @@ function Nav(props) {
           </Link>
         ) : (
           <div className="right-side-nav">
-            <Link className="link-style" to="/Map">
-              <i className="fa fa-map"></i>
-            </Link>
             <div className="message-icon">
               {messageNotification === true ? (
                 <div className="message-icon-text">
@@ -116,11 +221,13 @@ function Nav(props) {
                 <div className="no-message-icon-text"></div>
               )}
               <Link className="link-style" to="/Messages">
-                <i
-                  className="fa fa-comment-o fa-2x"
-                  aria-hidden="true"
+                <FontAwesomeIcon
+                  icon={faComments}
+                  size="2x"
+                  className="icon-fa"
                   onClick={removeNotification}
-                ></i>
+                />
+                {/* <i className="fa fa-comment-o fa-2x" aria-hidden="true"></i> */}
               </Link>
             </div>
             <div className="user-info-nav">
@@ -147,10 +254,20 @@ function Nav(props) {
                     <DropdownItem divider />
                   </DropdownItem>
                   <NavLink to="/account">
-                    <DropdownItem>Your Account</DropdownItem>
+                    <DropdownItem>
+                      <div className="button-layout">
+                        <SettingsIcon className="icon" />
+                        <div> Settings</div>
+                      </div>
+                    </DropdownItem>
                   </NavLink>
                   <DropdownItem>
-                    <span onClick={logout}>Logout</span>
+                    <span onClick={logout}>
+                      <div className="button-layout exit">
+                        <ExitToAppIcon className="icon " />
+                        <div> Sign out</div>
+                      </div>
+                    </span>
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>

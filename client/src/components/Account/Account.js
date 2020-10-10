@@ -159,34 +159,10 @@ function Account(props) {
     });
   };
 
-  // function getRandomInt(min, max) {
-  //   return Math.floor(Math.random() * (max - min + 1)) + min;
-  // }
-
-  const fetchAccountInfo = async () => {
-    const accountInfo = await axios.get("http://localhost:8001/account");
-    const neighbourhoodInfo = accountInfo.data.filter(
-      (neighbourhood) => neighbourhood.id === props.user.neighbourhood_id
-    )[0];
-    setNeighbourhood(neighbourhoodInfo);
-  };
-
-  useEffect(() => {
-    fetchAccountInfo();
-  }, []);
-
   useEffect(() => {
     populateChecked();
   }, [props.subscriptions]);
 
-  // function changeAlert_Type(e) {
-  //   setState({
-  //     ...state,
-  //     selectedAlert_Type: e.target.value,
-  //   });
-  // }
-
-  // these functions handle the Modal REFACTORASFASD ASDASDFASDLFUASFIUHASdfJASPODFJA:OIDFJ"APWOKDAWASDFASDASDDSA
   const handleOpen = () => {
     setOpen(true);
   };
