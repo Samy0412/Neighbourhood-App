@@ -34,8 +34,24 @@ function Landing(props) {
         <section class="presentation">
           <div class="introduction">
             <div class="intro-text">
-              <h1>Welcome to your neighbourhood!</h1>
-              <p>Come and join the community blabalalalalalalalaalalaal.</p>
+              <h1>Your neighbourhood private social network </h1>
+              <p>CupOSugah will help you connect with your neighbours.</p>
+              <ul>
+                <li>
+                  <img src="./images/dot.png" alt="dot" />
+                  Meet the members and connect with them.
+                </li>
+                <li>
+                  {" "}
+                  <img src="./images/dot.png" alt="dot" />
+                  Request for help or offer your services.
+                </li>
+                <li>
+                  <img src="./images/dot.png" alt="dot" />
+                  Keep up to date with local events and alerts, and recieve
+                  updates via SMS.
+                </li>
+              </ul>
             </div>
             <div class="sign-in-button">
               <Button
@@ -43,7 +59,7 @@ function Landing(props) {
                 variant="contained"
                 href="/register"
               >
-                Sign In
+                JOIN NOW!
               </Button>
             </div>
           </div>

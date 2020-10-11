@@ -40,6 +40,9 @@ nav {
   font-size: 18px;
   text-decoration: none;
   margin-left: 20px;
+  &:hover {
+    color: #f3c677;
+  }
 }
 
 .login-container {
@@ -73,6 +76,7 @@ nav {
 
 .introduction {
   flex: 1;
+
   align-self: flex-start;
   margin-top: 150px;
   margin-right: 5vw;
@@ -82,19 +86,37 @@ nav {
   font-weight: 500;
   color: #2c3e50;
 }
+
+.intro-text ul {
+  list-style: none;
+  color: #2c3e50;
+}
 .intro-text p {
   margin-top: 5px;
-  font-size: 22px;
+  font-size: 20px;
   color: #2c3e50;
 }
 
+.intro-text ul {
+  padding-left: 0px;
+}
+.intro-text li {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
 .cover {
   flex: 1;
-  height: 75vh;
+  height: 70vh;
   align-self: flex-end;
 }
 .cover img {
   height: 100%;
+  width: auto;
+}
+
+li > img {
+  width: 20px;
+  padding-right: 5px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -116,9 +138,9 @@ nav {
 
   .cover {
     flex: 1;
+    margin-top: 5vh;
   }
   .cover img {
-    // margin-top: 5vh;
     max-width: 100%;
 
     height: auto;
