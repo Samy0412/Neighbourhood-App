@@ -12,7 +12,6 @@ import Form from "react-bootstrap/Form";
 
 //Material-kit-component styling and components (try to avoid understanding it, too confusing...)
 import styles from "./Material-kit-components/landingPage.js";
-import Parallax from "./Material-kit-components/Parallax.js";
 
 //Our own style sheet
 import "../../styles.scss";
@@ -33,7 +32,7 @@ function Login(props) {
         sethomeRedirect(true);
         props.login(response.data);
       })
-      .catch((err) => alert("Wrong credentials!"));
+      .catch((err) => alert("wrong credentials!"));
   };
 
   if (homeRedirect) {
@@ -41,11 +40,25 @@ function Login(props) {
   }
   return (
     <div>
-      <Parallax filter image={require("../../assets/img/neighbours.jpg")}>
-        <div className={classes.containerLogin}>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)} className="form-contenant-login">
+        <div className="post-event-header">
+          <h2 id="transition-modal-title">Welcome Back</h2>
+          <Button
+            onClick={props.handleClose}
+            variant="none"
+            type="button"
+            id="close-button"
+            disableRipple
+          >
+            <i class="fa fa-times " aria-hidden="true"></i>
+          </Button>
+        </div>
+        <div className="event-form">
+          <div className="first-section">
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>
+                Email address <span>*</span>
+              </Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
@@ -57,7 +70,9 @@ function Login(props) {
               )}
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>
+                Password <span>*</span>
+              </Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
@@ -68,12 +83,16 @@ function Login(props) {
                 <span className="error-message">This field is required</span>
               )}
             </Form.Group>
-            <Button variant="contained" color="primary" type="submit">
-              Login
-            </Button>
-          </Form>
+          </div>
         </div>
-      </Parallax>
+        <Button
+          variant="warning"
+          type="submit"
+          className="service-alert-button post"
+        >
+          LOGIN
+        </Button>
+      </Form>
     </div>
   );
 }

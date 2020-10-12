@@ -117,10 +117,10 @@ function App() {
     <Router>
       <Switch>
         {/* These are the path were we don't want to see the navbar */}
-        <Route path="/" exact component={Landing} />
-        <Route path="/login" exact>
-          <Login login={setUser}></Login>
+        <Route path="/" exact>
+          <Landing login={setUser}></Landing>
         </Route>
+
         <Route path="/register" exact>
           <Register register={setUser}></Register>
         </Route>

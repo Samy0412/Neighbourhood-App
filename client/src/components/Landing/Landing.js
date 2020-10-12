@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { Modal, Backdrop, Fade } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+import Login from "./Login";
 import "../../styles.scss";
 
+//for Material UI
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+}));
 function Landing(props) {
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    console.log("CLOSE");
+    setOpen(false);
+  };
   return (
     <div>
       <header className="landing-header">
@@ -25,7 +52,11 @@ function Landing(props) {
           </ul>
         </nav>
         <div class="login-container">
-          <Button className="login-button" variant="contained" href="/login">
+          <Button
+            className="login-button"
+            variant="warning"
+            onClick={handleOpen}
+          >
             LOGIN
           </Button>
         </div>
@@ -68,6 +99,24 @@ function Landing(props) {
           </div>
         </section>
       </main>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div>
+            <Login handleClose={handleClose} login={props.login} />
+          </div>
+        </Fade>
+      </Modal>
     </div>
   );
 }

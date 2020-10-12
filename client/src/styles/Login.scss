@@ -1,10 +1,26 @@
 form {
-  width: 400px;
   padding: 30px;
   background-color: white;
-  color: black;
   border-radius: 10px;
 }
 span.error-message {
   color: red;
+}
+
+.form-contenant-login {
+  width: 20vw;
+  .event-form {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+
+    .first-section {
+      width: 100%;
+    }
+    .second-section {
+    }
+    span {
+      color: red;
+    }
+  }
 }
