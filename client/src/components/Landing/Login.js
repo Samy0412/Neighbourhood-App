@@ -20,7 +20,6 @@ const useStyles = makeStyles(styles);
 
 function Login(props) {
   const [homeRedirect, sethomeRedirect] = useState(false);
-  const classes = useStyles();
 
   //Hook from React-hook-form
   const { register, handleSubmit, errors } = useForm();
@@ -50,7 +49,7 @@ function Login(props) {
             id="close-button"
             disableRipple
           >
-            <i class="fa fa-times " aria-hidden="true"></i>
+            <i className="fa fa-times " aria-hidden="true"></i>
           </Button>
         </div>
         <div className="event-form">
@@ -90,7 +89,7 @@ function Login(props) {
           type="submit"
           className="service-alert-button post"
         >
-          LOGIN
+          LOG IN
         </Button>
       </Form>
     </div>

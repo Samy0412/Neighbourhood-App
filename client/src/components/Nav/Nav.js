@@ -37,8 +37,10 @@ function Nav(props) {
 
   const logout = () => {
     axios.post("/users/logout").then((response) => {
-      setlandingRedirect(true);
-      props.logout({});
+      setTimeout(() => {
+        setlandingRedirect(true);
+        props.logout({});
+      }, 800);
     });
   };
 

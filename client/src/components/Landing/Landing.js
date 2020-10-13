@@ -57,7 +57,7 @@ function Landing(props) {
             variant="warning"
             onClick={handleOpen}
           >
-            LOGIN
+            LOG IN
           </Button>
         </div>
       </header>
@@ -84,9 +84,9 @@ function Landing(props) {
                 </li>
               </ul>
             </div>
-            <div class="sign-in-button">
+            <div class="sign-in-container">
               <Button
-                className="login-button"
+                className="sign-in-button"
                 variant="contained"
                 href="/register"
               >
